@@ -20,12 +20,14 @@ class Figure:
             self.color = [self.r, self.g, self.b]
 
 
-    def get_sides(self, *args):
-        for side in self.sides:
-            if len(self.sides) == self.sides_count and side > 0 and type(side) == int:
-                return True
-            else:
-                return False
+    def get_sides(self):
+        return self.__sides
+
+        # for side in self.sides:
+        #     if len(self.sides) == self.sides_count and side > 0 and type(side) == int:
+        #         return True
+        #     else:
+        #         return False
 
     def set_sides(self, *new_sides):
         if self.__is_valid_sides(*new_sides):
@@ -43,7 +45,8 @@ class Circle(Figure):
         super().__init__(color, radius, filled)
 
     def get_square(self):
-        radius = self.get_sides()[0]  # Получаем радиус из сторон
+        # radius = self.get_sides()[0]  # Получаем радиус из сторон
+        self.radius = length / (2 * math.pi)
         return math.pi * (radius ** 2)
 
 
